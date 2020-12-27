@@ -1,10 +1,11 @@
 
 .navbar {
-  height: 5rem;
+  height: 6rem;
   display: grid;
   place-items: center;
-  background: transparent;
-  margin-bottom: 1rem;
+  position: sticky;
+  top: 0;
+  background-color: #f1f5f8;
 }
 
 .nav-center {
@@ -36,11 +37,19 @@ input {
   line-height: 20px;
 }
 
+input:focus {
+  outline: var(--clr-grey-);
+}
+
 .colors {
+  --cb-pattern-size: 40px;
+  --cb-pattern-color: rgba(0,0,0,0.05);
   min-height: calc(100vh - 100px);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(223.33px, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(96px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  background-image: linear-gradient(45deg, var(--cb-pattern-color) 25%, transparent 25%),linear-gradient(-45deg, var(--cb-pattern-color) 25%, transparent 25%),linear-gradient(45deg, transparent 75%, var(--cb-pattern-color) 75%),linear-gradient(-45deg, transparent 75%, var(--cb-pattern-color) 75%);
+  background-size: var(--cb-pattern-size) var(--cb-pattern-size);
+  background-position: 0 0,0 calc(var(--cb-pattern-size) / 2),calc(var(--cb-pattern-size) / 2) calc((var(--cb-pattern-size) / 2) * -1),calc((var(--cb-pattern-size) / 2) * -1) 0;
 }
 
 .color {
@@ -48,6 +57,7 @@ input {
   cursor: pointer;
   font-size: 1rem;
   text-transform: none;
+  flex: 1 1 200px;
 }
 
 .color-percent {
@@ -93,10 +103,6 @@ input {
 }
 
 @media screen and (min-width:800px) {
-  .navbar {
-    background: transparent
-  }
-
   .nav-center {
     display: grid;
     align-items: center;
