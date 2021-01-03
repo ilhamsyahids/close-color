@@ -60,7 +60,7 @@ input:focus {
 .colors {
   --cb-pattern-size: 40px;
   --cb-pattern-color: rgba(0, 0, 0, 0.05);
-  min-height: calc(100vh - 95px);
+  min-height: calc(100vh - 96px);
   display: flex;
   flex-wrap: wrap;
   background-image: linear-gradient(45deg, var(--cb-pattern-color) 25%, transparent 25%), linear-gradient(-45deg, var(--cb-pattern-color) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--cb-pattern-color) 75%), linear-gradient(-45deg, transparent 75%, var(--cb-pattern-color) 75%);

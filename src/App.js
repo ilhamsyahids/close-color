@@ -35,7 +35,7 @@ function App() {
       setWeigth(w)
       setList(colors);
       setError(false)
-      window.location.hash = `#${c}`
+      window.location.hash = `#${c}`.replace(/\s/g, '')
     } catch (e) {
       setError(true)
       return
@@ -57,7 +57,7 @@ function App() {
         onChangeWeigth={onChangeWeigth}
       />
       <main className="colors">
-        {list.map(c => <Color key={c.hex} color={c} />)}
+        {list.map((c, idx) => <Color key={idx} color={c} />)}
       </main>
     </>
   );
