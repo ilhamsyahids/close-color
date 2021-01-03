@@ -35,8 +35,12 @@ form {
   justify-content: space-between;
 }
 
+form i {
+  margin-right: 10px;
+}
+
 input {
-  margin: 0 auto;
+  margin: 0 10px 0 auto;
   padding: 0.5rem 1rem;
   font-size: 1.2rem;
   border: 2px solid var(--clr-grey-9);

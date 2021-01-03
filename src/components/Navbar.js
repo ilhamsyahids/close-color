@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Navbar({ color, error, onChange, onSubmit }) {
+export default function Navbar({ color, error, onChangeColor, onChangeWeigth, onSubmit }) {
     return (
         <nav className="navbar">
             <div className="nav-center">
@@ -10,6 +10,7 @@ export default function Navbar({ color, error, onChange, onSubmit }) {
                     </label>
                 </div>
                 <form onSubmit={onSubmit}>
+                    <i className="fa fa-info-circle"></i>
                     <input
                         className={error ? 'error' : ''}
                         defaultValue={color}
@@ -17,8 +18,18 @@ export default function Navbar({ color, error, onChange, onSubmit }) {
                         name="color"
                         type='text'
                         placeholder='#fff135'
-                        onChange={(e) => onChange(e.target.value)}
+                        onChange={(e) => onChangeColor(e.target.value)}
                     />
+                    <input
+                        id="weight"
+                        className={error ? 'error' : ''}
+                        name="weight"
+                        defaultValue={10}
+                        type="number"
+                        min="1"
+                        onChange={(e) => onChangeWeigth(e.target.value)}
+                    />
+                    %
                 </form>
             </div>
         </nav>

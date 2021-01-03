@@ -9,39 +9,53 @@ function App() {
   const [color, setColor] = useState(() => {
     let c;
     try {
-      new Values(window.location.hash).all(10);
-      c = window.location.hash;
+      new Values(window.location.hash.slice(1)).all(10);
+      c = window.location.hash.slice(1);
     } catch (e) {
       c = getRandomHexColor()
     } finally {
       return c;
     }
   });
-  const [list, setList] = useState(new Values(color).all(10));
+  const [weigth, setWeigth] = useState(10);
+  const [list, setList] = useState(new Values(color).all(weigth));
   const [error, setError] = useState(false);
 
   const submitColor = (e) => {
     e.preventDefault();
     const c = e.target.color.value;
-    onChangeColor(c)
+    const w = +e.target.weigth.value;
+    onChangeColor(c, w)
   }
 
-  const onChangeColor = (c) => {
+  const onChangeColor = (c, w = weigth) => {
     try {
-      const colors = new Values(c).all(10);
+      const colors = new Values(c).all(w);
       setColor(c);
+      setWeigth(w)
       setList(colors);
       setError(false)
-      window.location.hash = c
+      window.location.hash = `#${c}`
     } catch (e) {
       setError(true)
       return
     }
   }
 
+  const onChangeWeigth = (w) => {
+    onChangeColor(color, +w)
+  }
+
   return (
     <>
-      <Navbar color={color} error={error} onChange={onChangeColor} onSubmit={submitColor} />
+      <Navbar
+        color={color}
+        weigth={weigth}
+        error={error}
+        onChangeColor={onChangeColor}
+        onSubmit={submitColor}
+        onChangeWeigth={onChangeWeigth}
+      />
       <main className="colors">
         {list.map(c => <Color key={c.hex} color={c} />)}
       </main>
