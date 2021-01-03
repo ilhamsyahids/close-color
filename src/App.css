@@ -1,4 +1,3 @@
-
 .navbar {
   height: 6rem;
   display: grid;
@@ -6,6 +5,7 @@
   position: sticky;
   top: 0;
   background-color: #f1f5f8;
+  justify-content: center;
 }
 
 .nav-center {
@@ -19,6 +19,14 @@
   align-items: center;
   justify-content: space-between;
   place-content: center;
+}
+
+.nav-title h3 {
+  display: inline;
+}
+
+.nav-title span {
+  margin-left: 1rem;
 }
 
 form {
@@ -37,37 +45,47 @@ input {
   line-height: 20px;
 }
 
+.error {
+  border-color: #b00020;
+}
+
 input:focus {
   outline: var(--clr-grey-);
 }
 
 .colors {
   --cb-pattern-size: 40px;
-  --cb-pattern-color: rgba(0,0,0,0.05);
-  min-height: calc(100vh - 100px);
+  --cb-pattern-color: rgba(0, 0, 0, 0.05);
+  min-height: calc(100vh - 95px);
   display: flex;
   flex-wrap: wrap;
-  background-image: linear-gradient(45deg, var(--cb-pattern-color) 25%, transparent 25%),linear-gradient(-45deg, var(--cb-pattern-color) 25%, transparent 25%),linear-gradient(45deg, transparent 75%, var(--cb-pattern-color) 75%),linear-gradient(-45deg, transparent 75%, var(--cb-pattern-color) 75%);
+  background-image: linear-gradient(45deg, var(--cb-pattern-color) 25%, transparent 25%), linear-gradient(-45deg, var(--cb-pattern-color) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--cb-pattern-color) 75%), linear-gradient(-45deg, transparent 75%, var(--cb-pattern-color) 75%);
   background-size: var(--cb-pattern-size) var(--cb-pattern-size);
-  background-position: 0 0,0 calc(var(--cb-pattern-size) / 2),calc(var(--cb-pattern-size) / 2) calc((var(--cb-pattern-size) / 2) * -1),calc((var(--cb-pattern-size) / 2) * -1) 0;
+  background-position: 0 0, 0 calc(var(--cb-pattern-size) / 2), calc(var(--cb-pattern-size) / 2) calc((var(--cb-pattern-size) / 2) * -1), calc((var(--cb-pattern-size) / 2) * -1) 0;
 }
 
 .color {
   padding: 1rem 2rem;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-transform: none;
-  flex: 1 1 200px;
+  flex: 1 1 300px;
 }
 
-.color-percent {
-  margin-bottom: 0;
-  color: var(--clr-grey-1);
+.light {
+  color: #000
 }
 
-.color-value {
-  color: var(--clr-grey-1);
+.dark {
+  color: #fff
+}
+
+.color p {
   margin-bottom: 0;
+}
+
+.hex {
+  font-size: 1.1rem;
 }
 
 @media screen and (min-width:800px) {

@@ -23,7 +23,7 @@
   --clr-black: #0a0c10;
   --clr-red-dark: #bb2525;
   --clr-red-light: #e66b6b;
-  --ff-primary: "Roboto", sans-serif;
+  --ff-primary: "Roboto Mono", monospace;
   --ff-secondary: "Open Sans", sans-serif;
   --transition: all 0.3s linear;
   --spacing: 0.15rem;
