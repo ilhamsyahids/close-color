@@ -10,7 +10,6 @@ export default function Navbar({ color, error, onChangeColor, onChangeWeigth, on
                     </label>
                 </div>
                 <form onSubmit={onSubmit}>
-                    <i className="fa fa-info-circle"></i>
                     <input
                         className={error ? 'error' : ''}
                         defaultValue={color}

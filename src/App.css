@@ -89,7 +89,16 @@ input:focus {
 }
 
 .hex {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+}
+
+.color-value i {
+  margin-left: 3px;
+  display: none;
+}
+
+.color-value:hover i {
+  display: unset;
 }
 
 @media screen and (min-width:800px) {
