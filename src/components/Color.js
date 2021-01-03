@@ -14,37 +14,33 @@ export default function Color({ color }) {
 
     const alpha = (color.alpha !== 1 ? `, ${color.alpha.toFixed(2)}` : '')
     const brightness = color.getBrightness() > 55 ? 'light' : 'dark';
-    const hex = `#${color.hex}`
     const weight = color.weight
-    const rgb = `rgb(${color.rgb.join(', ') + alpha})`
-    const hsl = `hsl(${rgbToHsl(color.rgb).join(', ') + alpha})`
+
+    const values = [
+        { type: 'hex', value: `#${color.hex}`},
+        { type: 'rgb', value: `rgb(${color.rgb.join(', ') + alpha})`},
+        { type: 'hsl', value: `hsl(${rgbToHsl(color.rgb).join(', ') + alpha})`},
+    ]
 
     const copyValue = (str) => {
         setCopied([true, str])
         navigator.clipboard.writeText(str);
     }
 
+    const colorValue = (color) => {
+        const { type, value } = color;
+        return <p
+            className={`color-value ${type}`}
+            onClick={() => copyValue(value)}>
+            {value}
+            <i className="far fa-copy"></i>
+        </p>
+    }
+
     return (
-        <article className={`color ${brightness}`} style={{ backgroundColor: hex }}>
+        <article className={`color ${brightness}`} style={{ backgroundColor: `#${color.hex}` }}>
             <p className="color-percent">{weight}%</p>
-            <p
-                className="color-value hex"
-                onClick={() => copyValue(hex)}>
-                {hex}
-                <i className="fa fa-copy"></i>
-            </p>
-            <p
-                className="color-value"
-                onClick={() => copyValue(rgb)}>
-                {rgb}
-                <i className="fa fa-copy"></i>
-            </p>
-            <p
-                className="color-value"
-                onClick={() => copyValue(hsl)}>
-                {hsl}
-                <i className="fa fa-copy"></i>
-            </p>
+            {values.map(colorValue)}
             {copied[0] && <p className='alert'>{copied[1]} COPIED TO CLIPBOARD</p>}
         </article>
     );
